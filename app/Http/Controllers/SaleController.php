@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Sale;
+use App\Employee;
 use Illuminate\Http\Request;
 
 class SaleController extends Controller
@@ -14,7 +15,8 @@ class SaleController extends Controller
      */
     public function index()
     {
-        //
+        $sales = Sale::get();
+        return view('sales.index', compact('sales'));
     }
 
     /**
@@ -24,7 +26,8 @@ class SaleController extends Controller
      */
     public function create()
     {
-        //
+        $employees = Employee::get();
+        return view('sales.create', compact('employees'));
     }
 
     /**
@@ -35,7 +38,8 @@ class SaleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Sale::create($request->all());
+        return redirect()->route('sales.index');
     }
 
     /**
@@ -80,6 +84,7 @@ class SaleController extends Controller
      */
     public function destroy(Sale $sale)
     {
-        //
+        $sale->delete();
+        return redirect()->route('sales.index');
     }
 }

@@ -14,7 +14,8 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        //
+        $employees = Employee::get();
+        return view('employees.index', compact('employees'));
     }
 
     /**
@@ -24,7 +25,7 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
+        return view('employees.create');
     }
 
     /**
@@ -35,7 +36,8 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Employee::create($request->all());
+        return redirect()->route('employees.index');
     }
 
     /**
@@ -46,7 +48,7 @@ class EmployeeController extends Controller
      */
     public function show(Employee $employee)
     {
-        //
+        return view('employees.show', compact('employee'));
     }
 
     /**
@@ -57,7 +59,7 @@ class EmployeeController extends Controller
      */
     public function edit(Employee $employee)
     {
-        //
+        return view('employees.edit', compact('employee'));
     }
 
     /**
@@ -69,7 +71,8 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, Employee $employee)
     {
-        //
+        $employee->update($request->all());
+        return redirect()->route('employees.index');
     }
 
     /**
@@ -80,6 +83,7 @@ class EmployeeController extends Controller
      */
     public function destroy(Employee $employee)
     {
-        //
+        $employee->delete();
+        return redirect()->route('employees.index');
     }
 }
