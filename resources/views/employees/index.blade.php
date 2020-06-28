@@ -9,6 +9,7 @@
             <td>Lastname</td>
             <td>Total sales this month</td>
             <td>Total sales</td>
+            <td>Bonus</td>
             <td>Action</td>
         </thead>
         <tbody>
@@ -18,6 +19,7 @@
                 <td> {{$employee->last_name}} </td>
                 <td> {{$employee->month_sales}} </td>
                 <td> {{$employee->total_sales}} </td>
+                <td> {{$employee->bonus}} </td>
                 <td>
                     <form action="{{ route('employees.destroy', $employee->id)}}" method="post">
                         <a href="{{ route('employees.show', $employee->id)}}" class="btn btn-info"><i class="fas fa-list"></i></a>

@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container-fluid">
+    <h4>{{$employee->full_name}}</h4>
     <table class="table"> 
         <thead>
             <td>Amount</td>

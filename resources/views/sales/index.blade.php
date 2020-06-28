@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container-fluid">
-    <a href="{{ route('sales.create') }}" class="btn btn-primary"> <i class="fas fa-user-plus"></i></a>
+    <a href="{{ route('sales.create') }}" class="btn btn-primary"> <i class="fas fa-cart-plus"></i></a>
     <table class="table"> 
         <thead>
             <td>Employee</td>

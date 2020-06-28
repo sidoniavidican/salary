@@ -61,7 +61,7 @@ class SaleController extends Controller
      */
     public function edit(Sale $sale)
     {
-        //
+        return view('sales.edit', compact('sale'));
     }
 
     /**
@@ -73,7 +73,8 @@ class SaleController extends Controller
      */
     public function update(Request $request, Sale $sale)
     {
-        //
+        $sale->update($request->all());
+        return redirect()->route('sales.index');
     }
 
     /**
